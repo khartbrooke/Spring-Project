@@ -19,24 +19,35 @@ public class TyranidService implements ServiceInter<Tyranid>{
 		this.repo = repo;
 	}
 
-	@Override
 	public Tyranid create(Tyranid t) {
 		Tyranid created = this.repo.save(t);
 		return created;
 	}
-
-	@Override
+	
 	public List<Tyranid> getAll() {
 		return this.repo.findAll();
 	}
-
-	@Override
+	
 	public Tyranid getOne(Integer id) {
 		Optional<Tyranid> found = this.repo.findById(id);
 		return found.get();
 	}
-
-	@Override
+	
+	public List<Tyranid> getTyranidsByName(String name) {
+		List<Tyranid> found = this.repo.findByNameIgnoreCase(name);
+		return found;
+	}
+	
+	public List<Tyranid> getTyranidsByHiveFleet(String hiveFleet) {
+		List<Tyranid> found = this.repo.findByHiveFleet(hiveFleet);
+		return found;
+	}
+	
+	public List<Tyranid> getTyranidsByPoints(Integer points) {
+		List<Tyranid> found = this.repo.findByPoints(points);
+		return found;
+	}
+	
 	public Tyranid replace(Integer id, Tyranid t) {
 		Tyranid existing = this.repo.findById(id).get();
 		existing.setName(t.getName());
@@ -45,8 +56,7 @@ public class TyranidService implements ServiceInter<Tyranid>{
 		Tyranid updated = this.repo.save(existing);
 		return updated;
 	}
-
-	@Override
+	
 	public void remove(Integer id) {
 		this.repo.deleteById(id);
 	}

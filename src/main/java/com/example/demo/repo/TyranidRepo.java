@@ -14,6 +14,6 @@ public interface TyranidRepo extends JpaRepository<Tyranid, Integer>{
 	
 	List<Tyranid> findByHiveFleet(String hiveFleet);
 
-	List<Tyranid> findByPrice(Integer points);
+	List<Tyranid> findByPoints(Integer points);
 
 }

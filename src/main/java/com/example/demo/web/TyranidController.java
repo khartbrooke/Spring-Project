@@ -44,6 +44,24 @@ public class TyranidController {
 		return this.service.getOne(id);
 	}
 	
+	@GetMapping("/getByName/{name}")
+	public ResponseEntity<List<Tyranid>> getTyranidByName(@PathVariable String name){
+		List<Tyranid> found = this.service.getTyranidsByName(name); 
+		return ResponseEntity.ok(found);
+	}
+	
+	@GetMapping("/getByHiveFleet/{hiveFleet}")
+	public ResponseEntity<List<Tyranid>> getTyranidByHiveFleet(@PathVariable String hiveFleet){
+		List<Tyranid> found = this.service.getTyranidsByHiveFleet(hiveFleet); 
+		return ResponseEntity.ok(found);
+	}
+	
+	@GetMapping("/getByPoints/{points}")
+	public ResponseEntity<List<Tyranid>> getTyranidByPoints(@PathVariable Integer points){
+		List<Tyranid> found = this.service.getTyranidsByPoints(points); 
+		return ResponseEntity.ok(found);
+	}
+	
 	@PutMapping("/replace/{id}")
 	public ResponseEntity<Tyranid> replaceTyranid(@PathVariable Integer id, @RequestBody Tyranid t) {
 		Tyranid body = this.service.replace(id, t);
