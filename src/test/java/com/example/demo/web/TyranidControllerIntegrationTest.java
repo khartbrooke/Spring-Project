@@ -66,6 +66,42 @@ public class TyranidControllerIntegrationTest {
 	}
 	
 	@Test
+	void getTyranidsByNameTest() throws Exception {
+		RequestBuilder req = get("/getByName/Hive Tyrant");
+		
+		List<Tyranid> testTyranids = List.of(new Tyranid(1, "Hive Tyrant", "Hive Fleet Leviathan", 300));
+		String json = this.mapper.writeValueAsString(testTyranids);
+		ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkBody = content().json(json);
+		
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	void getTyranidsByHiveFleetTest() throws Exception {
+		RequestBuilder req = get("/getByHiveFleet/Hive Fleet Leviathan");
+		
+		List<Tyranid> testTyranids = List.of(new Tyranid(1, "Hive Tyrant", "Hive Fleet Leviathan", 300));
+		String json = this.mapper.writeValueAsString(testTyranids);
+		ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkBody = content().json(json);
+		
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	void getTyranidsByPointsTest() throws Exception {
+		RequestBuilder req = get("/getByPoints/300");
+		
+		List<Tyranid> testTyranids = List.of(new Tyranid(1, "Hive Tyrant", "Hive Fleet Leviathan", 300));
+		String json = this.mapper.writeValueAsString(testTyranids);
+		ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkBody = content().json(json);
+		
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
 	void getTyranidTest() throws Exception {
 		RequestBuilder req = get("/get/1");
 		
