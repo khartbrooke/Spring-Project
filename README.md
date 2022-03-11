@@ -15,7 +15,7 @@ The project specification was to create an application using all elements of our
 
 ## Planning Resources
 
-I used Jira to create a Kanban board to plan my project. I organised it into two sprints, one each for the front back ends of my project with multiple user stories for each as can be seen below:
+I used [Jira](https://kieran.atlassian.net/jira/software/projects/SPK/boards/1/roadmap) to create a Kanban board to plan my project. I organised it into two sprints, one each for the front back ends of my project with multiple user stories for each as can be seen below:
 
 <img src="READMEPhotos/jira.png" alt="drawing" width="800"/>
 
